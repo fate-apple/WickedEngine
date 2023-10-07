@@ -5,6 +5,9 @@
 #include <thread>
 #include <shellapi.h> // drag n drop
 
+#include "SimpleInjection.h"
+#include "./include/NGFX_Injection.h"
+
 // Enable macro and follow instructions from here: https://devblogs.microsoft.com/directx/gettingstarted-dx12agility/
 //#define USING_D3D12_AGILITY_SDK
 #ifdef USING_D3D12_AGILITY_SDK
@@ -112,6 +115,8 @@ BOOL CreateEditorWindow(int nCmdShow)
 	bool fullscreen = false;
 	bool borderless = false;
 
+	// TODo: sjw.
+	SimpleInjection::InjectIntoProcess();
 	wi::Timer timer;
 	if (editor.config.Open("config.ini"))
 	{
@@ -232,7 +237,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
             }
-        } 
+        }
         break;
 	case WM_SIZE:
 	case WM_DPICHANGED:

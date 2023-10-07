@@ -1,5 +1,5 @@
 set(MIN_OpenImageDenoise_VERSION "2.0")
-
+link_directories("./lib")
 
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)

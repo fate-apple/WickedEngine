@@ -1,4 +1,6 @@
-
+include_directories(./include)
+link_directories("./lib")
+link_libraries(NGFX_Injection)
 set (SOURCE_FILES
 	main_${PLATFORM}.cpp
 	#$<$<STREQUAL:${PLATFORM},Windows>:App_${PLATFORM}.cpp>
@@ -45,6 +47,7 @@ set (SOURCE_FILES
 	ProfilerWindow.cpp
 	xatlas.cpp
 	EmbeddedResources.cpp
+	SimpleInjection.cpp
 )
 
 add_subdirectory(meshoptimizer)
